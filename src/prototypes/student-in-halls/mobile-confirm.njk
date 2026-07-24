@@ -1,0 +1,59 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% set prevPage = "mobile" %}
+{% set formActionURL = pageInfo.rootPath + "/code-sent.html" %}
+
+{% block bodyStart %}
+    <form class="form-class js-confirm-mobile-form" method="GET" autocomplete="off" novalidate action="{{ formActionURL }}">
+{% endblock %}
+
+{% block main %}
+    {%
+        call onsQuestion({
+            "title": "Is this mobile number correct?",
+            "legendIsQuestionTitle": true,
+            "submitButton": {
+                "text": "Continue"
+            }
+        })
+    %}
+        <p class="js-confirm-mobile-number ons-u-fs-r ons-u-mb-l"></p>
+        <p class="js-confirm-mobile-fallback ons-u-mb-l">Loading mobile number…</p>
+
+        <input type="hidden" name="mobile-number" class="js-confirm-mobile-input" value="">
+
+        {{
+            onsRadios({
+                "name": "confirm-mobile",
+                "dontWrap": true,
+                "radios": [
+                    {
+                        "id": "confirm-mobile-yes",
+                        "label": {
+                            "text": "Yes, send the text"
+                        },
+                        "value": "yes"
+                    },
+                    {
+                        "id": "confirm-mobile-no",
+                        "label": {
+                            "text": "No, I need to change it"
+                        },
+                        "value": "no"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

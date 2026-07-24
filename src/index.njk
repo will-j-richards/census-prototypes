@@ -1,25 +1,37 @@
 {% from "components/list/_macro.njk" import onsList %}
 
 {% set pageConfig = {
-    "title": "ONS Prototypes",
+    "title": "Census Prototypes",
+    "themeColor": "#902082",
+    "header": {
+        "title": "Census Prototypes",
+        "mastheadLogoUrl": "/"
+    },
     "footer": {
         "oglLink": true
     }
 } %}
+
+{% block head %}
+    <link rel="stylesheet" href="/styles.css"/>
+{% endblock %}
+
 {% block main %}
     {% set groups = helpers.navigationHelper({
         "pages": prototypeListing,
         "ignorePaths": ["/"]
     }) %}
     {% for group in groups %}
-        <section>
-            <h1 class="u-fs-m">{{ group.title }}</h1>
-            {{
-                onsList({
-                    "classes": "ons-list--bare",
-                    "itemsList": group.items
-                })
-            }}
-        </section>
+        {% if group.title != "Examples" %}
+            <section>
+                <h1 class="u-fs-m">{{ group.title }}</h1>
+                {{
+                    onsList({
+                        "classes": "ons-list--bare",
+                        "itemsList": group.items
+                    })
+                }}
+            </section>
+        {% endif %}
     {% endfor %}
 {% endblock %}

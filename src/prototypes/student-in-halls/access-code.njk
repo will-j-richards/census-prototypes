@@ -1,0 +1,63 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/access-code/_macro.njk" import onsAccessCode %}
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/details/_macro.njk" import onsDetails %}
+
+{% set prevPage = "code-sent" %}
+{% set formActionURL = pageInfo.rootPath + "/confirm-final.html" %}
+
+{% block bodyStart %}
+    <form class="form-class js-access-code-form" method="GET" autocomplete="off" novalidate action="{{ formActionURL }}">
+{% endblock %}
+
+{% block main %}
+    <h1 class="ons-u-mt-2xl">Start census test</h1>
+
+    {{
+        onsAccessCode({
+            "id": "access-code-example",
+            "name": "access-code",
+            "postTextboxLinkText": "Where to find your access code",
+            "postTextboxLinkUrl": "#0",
+            "label": {
+                "text": "Enter your 16-character access code",
+                "description": "Keep this code safe. You will need to enter it every time you access your census test"
+            },
+            "securityMessage": "Your personal information is protected by law and will be kept confidential"
+        })
+    }}
+
+    {{
+        onsButton({
+            "text": "Access census test",
+            "classes": "ons-u-mb-2xl ons-u-mt-s"
+        })
+    }}
+
+    <h2>If you don’t have an access code</h2>
+    <p>
+        You can <a href="#0">request a new access code</a> to start a new census if you have lost or not received an access code.
+    </p>
+
+    {% set content %}
+        <p>If you need to answer separately from the people you live with, you can <a href="#0">request an individual access code</a> to start a separate census.</p>
+    {% endset %}
+
+    {%
+        call onsDetails({
+            "id": "details",
+            "title": "Need to answer separately from your household?"
+        })
+    %}
+        {{ content | safe }}
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

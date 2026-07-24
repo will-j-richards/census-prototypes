@@ -1,0 +1,49 @@
+---
+group: Census test 2027
+title: Student in halls end-to-end journey
+layout: student-in-halls/views/_main
+---
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% set headerNavigation = {
+    "id": "main-nav",
+    "ariaLabel": "Main menu",
+    "currentPath": [pageInfo.rootPath + "/index.html", pageInfo.rootPath + "/", pageInfo.rootPath],
+    "itemsList": [
+        {
+            "text": "Home",
+            "url": pageInfo.rootPath + "/index.html"
+        },
+        {
+            "text": "About the census",
+            "url": "#0"
+        },
+        {
+            "text": "Your data and security",
+            "url": "#0"
+        },
+        {
+            "text": "Help",
+            "url": "#0"
+        },
+        {
+            "text": "Contact us",
+            "url": "#0"
+        }
+    ],
+    "toggleNavigationButton": {
+        "text": "Menu",
+        "ariaLabel": "Toggle main menu"
+    }
+} %}
+
+{% block main %}
+    <h1>Students in halls of residence</h1>
+    {{
+        onsButton({
+            "text": "Start census test",
+            "classes": "ons-u-mt-l",
+            "url": pageInfo.rootPath + "/address.html"
+        })
+    }}
+{% endblock %}

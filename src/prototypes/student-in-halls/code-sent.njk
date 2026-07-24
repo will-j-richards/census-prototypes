@@ -1,0 +1,33 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% block main %}
+    {% call onsPanel({
+        "variant": "success",
+        "classes": "ons-u-mb-l"
+    }) %}
+        <h1 id="text-sent-title" class="ons-u-fs-l ons-u-mb-xs">
+            We have sent a text to <span class="js-text-sent-mobile"></span>
+        </h1>
+        <p>The text message with a household access code should arrive soon for you to complete your census</p>
+    {% endcall %}
+
+    <h2 class="ons-u-fs-m ons-u-mb-xs">Didn’t receive a text?</h2>
+    <p class="ons-u-mb-l">
+        It can take a few minutes for the text to arrive. If it doesn’t arrive, you can
+        <a href="{{ pageInfo.rootPath }}/mobile.html">request a new code</a>.
+    </p>
+
+    <h2 class="ons-u-fs-m ons-u-mb-s">Ready to start your census test online?</h2>
+    {{
+        onsButton({
+            "text": "Start census test",
+            "url": pageInfo.rootPath + "/access-code.html"
+        })
+    }}
+{% endblock %}

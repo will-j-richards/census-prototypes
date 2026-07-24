@@ -1,0 +1,85 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/address-input/_macro.njk" import onsAddressInput %}
+{% from "components/details/_macro.njk" import onsDetails %}
+
+{% set prevPage = "index" %}
+{% set formActionURL = pageInfo.rootPath + "/confirm.html" %}
+
+{% block bodyStart %}
+    <form class="form-class" method="GET" autocomplete="off" novalidate action="{{ formActionURL }}">
+{% endblock %}
+
+{% block main %}
+    {%
+        call onsQuestion({
+            "title": "What is your term time address?",
+            "submitButton": {
+                "text": "Continue"
+            }
+        })
+    %}
+        {# Hint temporarily removed from address label:
+           "description": "For example: Room 15, Block C, University Hall, or CF10 3NB"
+        #}
+        {{
+            onsAddressInput({
+                "id": "address-input",
+                "name": "address",
+                "dontWrap": true,
+                "label": {
+                    "text": "Enter your room, flat, building name or postcode",
+                    "id": "address-label-input"
+                },
+                "isEditable": false,
+                "mandatory": true,
+                "externalInitialiser": true,
+                "apiDomain": "/mock-address-api",
+                "apiDomainBearerToken": "prototype-token",
+                "instructions": "Use up and down keys to navigate suggestions once you've typed more than two characters. Use the enter key to select a suggestion. Touch device users, explore by touch or with swipe gestures.",
+                "ariaYouHaveSelected": "You have selected",
+                "ariaMinChars": "Enter 3 or more characters for suggestions.",
+                "ariaOneResult": "There is one suggestion available.",
+                "ariaNResults": "There are {n} suggestions available.",
+                "ariaLimitedResults": "Results have been limited to 10 suggestions. Type more characters to improve your search",
+                "ariaGroupedResults": "There are {n} for {x}",
+                "groupCount": "{n} addresses",
+                "moreResults": "Enter more of the address to improve results",
+                "resultsTitle": "Select an address",
+                "resultsTitleId": "address-results",
+                "noResults": "No results found. Try entering a different part of the address",
+                "tooManyResults": "{n} results found. Enter more of the address to improve results",
+                "typeMore": "Enter more of the address to get results",
+                "autocomplete": "off",
+                "errorTitle": "There is a problem with your answer",
+                "errorMessageEnter": "Enter an address",
+                "errorMessageSelect": "Select an address",
+                "errorMessageApi": "Sorry, there is a problem. We are working to fix it. Please try again later or",
+                "errorMessageApiLinkText": "contact us for more help",
+                "options": {
+                    "regionCode": "gb-eng",
+                    "addressType": "residential"
+                }
+            })
+        }}
+
+        {%
+            call onsDetails({
+                "id": "cannot-find-address",
+                "title": "I can’t find my address",
+                "classes": "ons-u-mt-m"
+            })
+        %}
+            <p>Dummy text for what to do if you can’t find your address.</p>
+        {% endcall %}
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

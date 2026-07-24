@@ -1,0 +1,27 @@
+:root {
+  --ons-color-branded: #902082;
+  --ons-color-header: #902082;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--ons-color-page-light, #fff);
+}
+
+.ons-page {
+  min-height: 100%;
+  min-height: 100dvh;
+  background-color: var(--ons-color-page-light, #fff);
+}
+
+/* Match Census 2021 header bar height from the end-to-end prototype */
+.ons-header__main {
+  padding: 1.2375rem 0;
+}
+
+.ons-header__title-logo img {
+  display: block;
+  height: 2.75rem; /* 44px — census logo native height */
+  width: auto;
+}

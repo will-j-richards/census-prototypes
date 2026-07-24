@@ -1,0 +1,26 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/panel/_macro.njk" import onsPanel %}
+{% from "components/button/_macro.njk" import onsButton %}
+
+{% block main %}
+    {% call onsPanel({
+        "variant": "success",
+        "classes": "ons-u-mb-l"
+    }) %}
+        <h1 class="ons-u-fs-l ons-u-mb-xs">Thank you</h1>
+        <p>You have completed this prototype.</p>
+    {% endcall %}
+
+    <p class="ons-u-mb-l">You can return to the start if you want to try the journey again.</p>
+
+    {{
+        onsButton({
+            "text": "Return to start",
+            "url": pageInfo.rootPath + "/index.html"
+        })
+    }}
+{% endblock %}

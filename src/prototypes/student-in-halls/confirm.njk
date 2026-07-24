@@ -1,0 +1,60 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/radios/_macro.njk" import onsRadios %}
+
+{% set prevPage = "address" %}
+{% set formActionURL = pageInfo.rootPath + "/mobile.html" %}
+
+{% block bodyStart %}
+    <form class="form-class js-confirm-address-form" method="GET" autocomplete="off" novalidate action="{{ formActionURL }}">
+{% endblock %}
+
+{% block main %}
+    {%
+        call onsQuestion({
+            "title": "Is this the correct address?",
+            "legendIsQuestionTitle": true,
+            "submitButton": {
+                "text": "Continue"
+            }
+        })
+    %}
+        <div class="js-confirm-address-output ons-u-mb-l"></div>
+        <p class="js-confirm-address-fallback ons-u-mb-l">Loading address…</p>
+
+        <input type="hidden" name="uprn" class="js-confirm-uprn" value="">
+        <input type="hidden" name="address" class="js-confirm-address" value="">
+
+        {{
+            onsRadios({
+                "name": "confirm-address",
+                "dontWrap": true,
+                "radios": [
+                    {
+                        "id": "yes",
+                        "label": {
+                            "text": "Yes, this is the correct address"
+                        },
+                        "value": "yes"
+                    },
+                    {
+                        "id": "no",
+                        "label": {
+                            "text": "No, search for address again"
+                        },
+                        "value": "no"
+                    }
+                ]
+            })
+        }}
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "layout/_template.njk" %}
+{% set breadCrumbsUrl %}
+{% if prevPage %}
+    {{ pageInfo.rootPath }}/{{ prevPage }}.html
+{% else %}
+/
+{% endif %}
+{% endset %}
+{% set pageConfig = {
+    "themeColor": "#902082",
+    "pageColNumber": "8",
+    "header": {
+        "mastheadLogoUrl": "/",
+        "titleUrl": pageInfo.rootPath + "/index.html",
+        "titleLogo": {
+            "large": '<img src="/prototypes/student-in-halls/img/census-logo-en.svg" alt="Census 2021">'
+        },
+        "navigation": headerNavigation
+    },
+    "footer": {
+        "crest": true,
+        "oglLink": true
+    }
+} %}
+{% if prevPage %}
+    {% set pageConfig = {
+        "themeColor": pageConfig.themeColor,
+        "pageColNumber": pageConfig.pageColNumber,
+        "header": pageConfig.header,
+        "footer": pageConfig.footer,
+        "breadcrumbs": {
+            "ariaLabel": 'Back',
+            "itemsList": [
+                {
+                    "linkClasses": 'js-previous',
+                    "url": breadCrumbsUrl | trim,
+                    "text": 'Previous'
+                }
+            ]
+        }
+    } %}
+{% endif %}
+
+{% block head %}
+    <link rel="stylesheet" href="/prototypes/student-in-halls/styles.css"/>
+{% endblock %}
+
+{% block main %}
+{% endblock %}
+
+{% block bodyEnd %}
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

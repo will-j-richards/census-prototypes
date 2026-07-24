@@ -1,0 +1,44 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/question/_macro.njk" import onsQuestion %}
+{% from "components/input/_macro.njk" import onsInput %}
+
+{% set prevPage = "confirm" %}
+{% set formActionURL = pageInfo.rootPath + "/mobile-confirm.html" %}
+
+{% block bodyStart %}
+    <form class="form-class" method="GET" autocomplete="off" novalidate action="{{ formActionURL }}">
+{% endblock %}
+
+{% block main %}
+    {%
+        call onsQuestion({
+            "title": "What is your mobile number?",
+            "submitButton": {
+                "text": "Continue"
+            }
+        })
+    %}
+        {{
+            onsInput({
+                "id": "mobile-number",
+                "name": "mobile-number",
+                "type": "tel",
+                "autocomplete": "tel",
+                "classes": "ons-input--w-20",
+                "label": {
+                    "text": "UK mobile number",
+                    "description": "This will not be stored and only used once to send the access code"
+                }
+            })
+        }}
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    </form>
+    <script src="/prototypes/student-in-halls/index.js"></script>
+{% endblock %}

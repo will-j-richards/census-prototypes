@@ -1,0 +1,27 @@
+---
+group: Census test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+{% from "components/button/_macro.njk" import onsButton %}
+{% from "components/panel/_macro.njk" import onsPanel %}
+
+{% set prevPage = "address" %}
+
+{% block main %}
+    <h1>I can’t find my address</h1>
+
+    {% call onsPanel({
+        "variant": "info"
+    }) %}
+        This prototype only includes sample Newcastle student halls addresses. Try searching again with a different part of the address or postcode.
+    {% endcall %}
+
+    {{
+        onsButton({
+            "text": "Search again",
+            "classes": "ons-u-mt-l",
+            "url": pageInfo.rootPath + "/address.html"
+        })
+    }}
+{% endblock %}
