@@ -601,6 +601,8 @@ function setupMobileConfirmPage() {
         hiddenInput.value = mobileNumber;
     }
 
+    let isSendingAccessCode = false;
+
     form.addEventListener('submit', async (event) => {
         const selected = form.querySelector('input[name="confirm-mobile"]:checked');
         if (!selected) {
@@ -618,6 +620,12 @@ function setupMobileConfirmPage() {
         event.preventDefault();
         window.DONT_SUBMIT = true;
         forceCodeSentAction();
+
+        // Guard against double-submit (e.g. double-click) sending multiple texts.
+        if (isSendingAccessCode) {
+            return;
+        }
+        isSendingAccessCode = true;
 
         const submitButton = form.querySelector('button[type="submit"], .ons-btn');
         if (submitButton) {

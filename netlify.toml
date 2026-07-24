@@ -1,0 +1,18 @@
+[build]
+  command = "yarn build"
+  publish = "build"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Needed so Netlify can install the git dependency (@ons/prototype-kit)
+  YARN_ENABLE_IMMUTABLE_INSTALLS = "false"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/send-access-code"
+  to = "/.netlify/functions/send-access-code"
+  status = 200
+  force = true
