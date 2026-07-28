@@ -19,7 +19,7 @@
 {% block main %}
     {% set groups = helpers.navigationHelper({
         "pages": prototypeListing,
-        "ignorePaths": ["/", "/prototypes", "/poster-1", "/poster-2"]
+        "ignorePaths": ["/", "/prototypes"]
     }) %}
     {% for group in groups %}
         {% if group.title != "Examples" %}
@@ -31,7 +31,7 @@
                             "classes": "ons-list--bare",
                             "itemsList": [{
                                 "text": "Student in halls end-to-end journey",
-                                "url": "/poster-1.html"
+                                "url": "/prototypes/student-in-halls/poster-1.html"
                             }]
                         })
                     }}

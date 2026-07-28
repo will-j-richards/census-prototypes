@@ -8,7 +8,7 @@ gulp.task('prototype-kit:copy-json-files', () => {
 });
 
 gulp.task('prototype-kit:copy-static-images', () => {
-  return gulp.src('./src/img/**/*').pipe(gulp.dest('./build/img'));
+  return gulp.src('./src/prototypes/**/img/**/*', { base: './src' }).pipe(gulp.dest('./build'));
 });
 
 gulp.task('prototype-kit:start-dev-server', async () => {
