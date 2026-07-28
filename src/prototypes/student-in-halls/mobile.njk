@@ -17,7 +17,7 @@ layout: student-in-halls/views/_main
     {%
         call onsQuestion({
             "title": "What is your mobile number?",
-            "description": "To begin your Census test, we'll send an access code by text to a UK mobile number. We'll only use your mobile number to send your access code.",
+            "description": "To begin your Census test, we'll send an access code by text to a UK mobile number.",
             "submitButton": {
                 "text": "Continue"
             }
@@ -31,7 +31,8 @@ layout: student-in-halls/views/_main
                 "autocomplete": "tel",
                 "classes": "ons-input--w-20",
                 "label": {
-                    "text": "UK mobile number"
+                    "text": "UK mobile number",
+                    "description": "This will not be stored and only used to send the access code"
                 }
             })
         }}
