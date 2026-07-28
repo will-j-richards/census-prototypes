@@ -7,6 +7,10 @@ gulp.task('prototype-kit:copy-json-files', () => {
   return gulp.src('./src/**/*.json').pipe(gulp.dest('./build'));
 });
 
+gulp.task('prototype-kit:copy-static-images', () => {
+  return gulp.src('./src/img/**/*').pipe(gulp.dest('./build/img'));
+});
+
 gulp.task('prototype-kit:start-dev-server', async () => {
   await import('./server.js');
 });
@@ -16,6 +20,7 @@ gulp.task(
   gulp.series(
     'prototype-kit:build-assets',
     'prototype-kit:copy-json-files',
+    'prototype-kit:copy-static-images',
     'prototype-kit:watch-and-build',
     'prototype-kit:start-dev-server',
   ),
@@ -23,5 +28,10 @@ gulp.task(
 
 gulp.task(
   'prototype-kit:build',
-  gulp.series('prototype-kit:build-assets', 'prototype-kit:copy-json-files', 'prototype-kit:build-pages'),
+  gulp.series(
+    'prototype-kit:build-assets',
+    'prototype-kit:copy-json-files',
+    'prototype-kit:copy-static-images',
+    'prototype-kit:build-pages',
+  ),
 );

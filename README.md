@@ -72,17 +72,17 @@ Certain functions have been integrated into the form summary to accommodate spec
 
 ### Custom JavaScript
 
-If you need to add custom JavaScript to your prototype, the build system will automatically look for a file called `index.js` in your prototype. Gulp will convert your JavaScript to ES5 code. You can refer to the example folder to see how to include the JavaScript in your template.
+If you need to add custom JavaScript to your prototype, the build system will automatically look for a file called `index.js` in your prototype. Gulp will convert your JavaScript to ES5 code.
 
 ### Custom CSS
 
-If you need to add custom CSS to style a new component or override styling on an existing component you can create a `.scss` file in the directory of your prototype. Gulp will spit out a `.css` file named the same as any `.scss` file that isn't prefixed with an underscore. You can refer to the example folder to see how to include generated css in your template.
+If you need to add custom CSS to style a new component or override styling on an existing component you can create a `.scss` file in the directory of your prototype. Gulp will spit out a `.css` file named the same as any `.scss` file that isn't prefixed with an underscore.
 
 ### Linking JSON file to the Autosuggest component
 
  Follow these steps to correctly link the JSON file to the autosuggest component:
 
-1. Place the JSON file inside the `/src/prototypes/example/data/` folder.  
+1. Place the JSON file inside your prototype's `data/` folder, for example `/src/prototypes/student-in-halls/data/`.  
 
 2. Use **Example 3** in `gulpfile.js` to define a new Gulp task, `build-json`, that copies the JSON file to the `build/` folder.  
 

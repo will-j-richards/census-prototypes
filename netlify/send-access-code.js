@@ -1,4 +1,4 @@
-import { sendAccessCodeSms } from '../../lib/send-access-code.js';
+import { sendAccessCodeSms } from '../lib/send-access-code.js';
 
 const jsonHeaders = {
   'Content-Type': 'application/json',

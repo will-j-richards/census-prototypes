@@ -19,18 +19,30 @@
 {% block main %}
     {% set groups = helpers.navigationHelper({
         "pages": prototypeListing,
-        "ignorePaths": ["/"]
+        "ignorePaths": ["/", "/prototypes", "/poster-1", "/poster-2"]
     }) %}
     {% for group in groups %}
         {% if group.title != "Examples" %}
             <section>
                 <h1 class="u-fs-m">{{ group.title }}</h1>
-                {{
-                    onsList({
-                        "classes": "ons-list--bare",
-                        "itemsList": group.items
-                    })
-                }}
+                {% if group.title == "Census test 2027" %}
+                    {{
+                        onsList({
+                            "classes": "ons-list--bare",
+                            "itemsList": [{
+                                "text": "Student in halls end-to-end journey",
+                                "url": "/poster-1.html"
+                            }]
+                        })
+                    }}
+                {% else %}
+                    {{
+                        onsList({
+                            "classes": "ons-list--bare",
+                            "itemsList": group.items
+                        })
+                    }}
+                {% endif %}
             </section>
         {% endif %}
     {% endfor %}

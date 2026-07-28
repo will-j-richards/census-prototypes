@@ -1,7 +1,7 @@
 [build]
   command = "yarn build"
   publish = "build"
-  functions = "netlify/functions"
+  functions = "netlify"
 
 [build.environment]
   NODE_VERSION = "20"
