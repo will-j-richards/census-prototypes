@@ -21,8 +21,6 @@ layout: student-in-halls/views/_main
         onsAccessCode({
             "id": "access-code-example",
             "name": "access-code",
-            "postTextboxLinkText": "Where to find your access code",
-            "postTextboxLinkUrl": "#0",
             "label": {
                 "text": "Enter your 16-character access code",
                 "description": "Keep this code safe. You will need to enter it every time you access your census test"
@@ -50,7 +48,7 @@ layout: student-in-halls/views/_main
     {%
         call onsDetails({
             "id": "details",
-            "title": "Need to answer separately from your household?"
+            "title": "If you live in a household and want to answer separately"
         })
     %}
         {{ content | safe }}
