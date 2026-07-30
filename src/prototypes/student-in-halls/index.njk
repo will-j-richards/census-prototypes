@@ -4,6 +4,7 @@ title: Student in halls end-to-end journey
 layout: student-in-halls/views/_main
 ---
 {% from "components/button/_macro.njk" import onsButton %}
+{% from "components/list/_macro.njk" import onsList %}
 
 {% set pageBreadcrumbs = {
     "ariaLabel": "Breadcrumb",
@@ -11,14 +12,6 @@ layout: student-in-halls/views/_main
         {
             "url": "#0",
             "text": "Home"
-        },
-        {
-            "url": "#0",
-            "text": "Help with the census"
-        },
-        {
-            "url": "#0",
-            "text": "Types of household or accommodation"
         }
     ]
 } %}
@@ -56,7 +49,11 @@ layout: student-in-halls/views/_main
 } %}
 
 {% block main %}
-    <h1>Students in halls of residence</h1>
+    <h1>Are you a student in halls of residence?</h1>
+    <p>If you live in halls of residence, we need your help to test how the census works for students.
+Taking part helps us make sure the census is easy to complete and produces accurate information about students living across England and Wales.</p>
+    <p>The test should only take a few minutes to complete. You will need a UK mobile phone to receive an access code.</p>
+    <p class="ons-u-mb-no"><strong>Start the census test by requesting your access code.</strong></p>
     {{
         onsButton({
             "text": "Start census test",
@@ -64,4 +61,84 @@ layout: student-in-halls/views/_main
             "url": pageInfo.rootPath + "/address.html"
         })
     }}
+    <h2 class="ons-u-mt-3xl">What you need to do</h2>
+    {{
+        onsList({
+            "element": "ol",
+            "itemsList": [
+                {
+                    "text": "Request your access code."
+                },
+                {
+                    "text": "Receive code on a UK mobile phone."
+                },
+                {
+                    "text": 'Use the code to access the <a href="#0">census test</a>.'
+                },
+                {
+                    "text": "Complete the test by March 21 2027."
+                }
+            ]
+        })
+    }}
+    <h2 class="ons-u-mt-2xl">Why you should complete the test</h2>
+    <p>The census helps build a picture of the population. Information from the census is used to help plan and fund services that people rely on, including:</p>
+    {{
+        onsList({
+            "classes": "ons-u-mb-xl",
+            "itemsList": [
+                {
+                    "text": "healthcare"
+                },
+                {
+                    "text": "transport"
+                },
+                {
+                    "text": "education"
+                },
+                {
+                    "text": "housing"
+                },
+                {
+                    "text": "local services"
+                }
+            ]
+        })
+    }}
+    <p>Students are an important part of the population. By taking part in this test, you're helping us make sure future censuses work well for everyone.</p>
+    <p>Your answers are kept confidential and used for statistical purposes.</p>
+    <h2 class="ons-u-mt-2xl">Which address should you use?</h2>
+    <p>For the census, we want to know where people usually live.</p>
+    <h2 class="ons-u-mt-2xl">If you live in halls of residence during term time</h2>
+    <p>Use your term-time address (your halls of residence) if that's where you usually live while studying.</p>
+    <p>Even if you regularly return to your family home during holidays, your halls will usually be your census address if you spend most of your time there during term.</p>
+    <h2 class="ons-u-mt-2xl">If you live in private accommodation</h2>
+    <p>If your term-time address is a private flat or house you should use that address. You will receive a letter to that address with an access code and a link to start your census.</p>
+    <h2 class="ons-u-mt-2xl">If you live at home while studying</h2>
+    <p>If you normally live at your family home and commute to university, use your home address. You will receive a letter to your home address with an access code and a link to start your census.</p>
+    <h2 class="ons-u-mt-2xl">If you’re unsure</h2>
+    <p>In most cases, students living in halls during term should use their term-time address.</p>
+    <p>If you're unsure which address to use, choose the address where you spend most of your time.</p>
+    <h2 class="ons-u-mt-2xl">International students</h2>
+    <p>If you're an international student and expect to stay in the UK for around 3 months or more, you should take part in the census test using your UK term-time address.</p>
+    <p>If you'll be in the UK for less than 3 months, you do not need to complete the census test.</p>
+    <h2 class="ons-u-mt-2xl">Before you start</h2>
+    <p>You will need:</p>
+    {{
+        onsList({
+            "itemsList": [
+                {
+                    "text": "your access code"
+                },
+                {
+                    "text": "your halls or home address"
+                },
+                {
+                    "text": "a few minutes to complete the test"
+                }
+            ]
+        })
+    }}
+    <h2 class="ons-u-mt-2xl">Need help?</h2>
+    <p>If you're not sure whether you should take part, which address to use, or need help accessing the test, <a href="#0">contact the census support team</a>.</p>
 {% endblock %}
