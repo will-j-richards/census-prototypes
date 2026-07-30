@@ -5,6 +5,24 @@ layout: student-in-halls/views/_main
 ---
 {% from "components/button/_macro.njk" import onsButton %}
 
+{% set pageBreadcrumbs = {
+    "ariaLabel": "Breadcrumb",
+    "itemsList": [
+        {
+            "url": "#0",
+            "text": "Home"
+        },
+        {
+            "url": "#0",
+            "text": "Help with the census"
+        },
+        {
+            "url": "#0",
+            "text": "Types of household or accommodation"
+        }
+    ]
+} %}
+
 {% set headerNavigation = {
     "id": "main-nav",
     "ariaLabel": "Main menu",
