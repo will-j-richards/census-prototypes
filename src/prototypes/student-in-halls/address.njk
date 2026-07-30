@@ -67,15 +67,9 @@ layout: student-in-halls/views/_main
             })
         }}
 
-        {%
-            call onsDetails({
-                "id": "cannot-find-address",
-                "title": "I can’t find my address",
-                "classes": "ons-u-mt-m"
-            })
-        %}
-            <p>Dummy text for what to do if you can’t find your address.</p>
-        {% endcall %}
+        <p class="ons-u-mt-m">
+            <a href="{{ pageInfo.rootPath }}/cannot-find.html">I cannot find my address</a>
+        </p>
     {% endcall %}
 {% endblock %}
 
