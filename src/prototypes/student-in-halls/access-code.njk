@@ -1,5 +1,5 @@
 ---
-group: Census test 2027
+group: Census Test 2027
 title: Student in halls
 layout: student-in-halls/views/_main
 ---
@@ -15,7 +15,7 @@ layout: student-in-halls/views/_main
 {% endblock %}
 
 {% block main %}
-    <h1 class="ons-u-mt-2xl">Start census test</h1>
+    <h1 class="ons-u-mt-2xl">Start Census Test</h1>
 
     {{
         onsAccessCode({
@@ -23,7 +23,7 @@ layout: student-in-halls/views/_main
             "name": "access-code",
             "label": {
                 "text": "Enter your 16-character access code",
-                "description": "Keep this code safe. You will need to enter it every time you access your census test"
+                "description": "Keep this code safe. You will need to enter it every time you access your Census Test"
             },
             "securityMessage": "Your personal information is protected by law and will be kept confidential"
         })
@@ -31,7 +31,7 @@ layout: student-in-halls/views/_main
 
     {{
         onsButton({
-            "text": "Access census test",
+            "text": "Access Census Test",
             "classes": "ons-u-mb-2xl ons-u-mt-s"
         })
     }}
