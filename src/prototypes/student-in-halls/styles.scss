@@ -25,3 +25,19 @@ body {
   height: 1.98rem; /* 10% smaller than 2.2rem */
   width: auto;
 }
+
+.ons-header .ons-btn--mobile.ons-u-ml-2xs {
+  margin-left: 2rem !important; /* 32px */
+}
+
+.info-safe-panel.ons-panel--bare .ons-panel__icon {
+  height: 16px;
+  width: 16px;
+  min-height: 16px;
+  min-width: 16px;
+}
+
+.info-safe-panel.ons-panel--bare .ons-panel__icon .ons-icon {
+  height: 16px;
+  width: 16px;
+}

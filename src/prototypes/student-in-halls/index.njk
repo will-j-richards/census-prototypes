@@ -5,6 +5,7 @@ layout: student-in-halls/views/_main
 ---
 {% from "components/button/_macro.njk" import onsButton %}
 {% from "components/list/_macro.njk" import onsList %}
+{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageBreadcrumbs = {
     "ariaLabel": "Breadcrumb",
@@ -50,8 +51,8 @@ layout: student-in-halls/views/_main
 
 {% block main %}
     <h1>Are you a student in halls of residence?</h1>
-    <p>If you live in halls of residence, we need your help to test how the census works for students.</p>
-    <p><strong>It only takes 10 minutes to complete.</strong></p>
+    <p>We're inviting students in halls of residence to take part in the Census Test. Your response will help the ONS shape Census 2031 for students.</p>
+    <p>It only takes 10 minutes to complete.</p>
     {{
         onsButton({
             "text": "Start census test",
@@ -59,7 +60,7 @@ layout: student-in-halls/views/_main
             "url": pageInfo.rootPath + "/address.html"
         })
     }}
-    <p class="ons-u-mt-m">If you're not a student in halls of residence, go to the Census <a href="#0">homepage</a>.</p>
+    <p class="ons-u-mt-m">If you're not a student in halls of residence, go to the census test <a href="#0">homepage</a>.</p>
     <h2 class="ons-u-mt-3xl">What you need to do</h2>
     {{
         onsList({
@@ -85,8 +86,16 @@ layout: student-in-halls/views/_main
     <p>If you'll be in the UK for less than 3 months, you do not need to complete the census test.</p>
     <h2 class="ons-u-mt-2xl">Why should I complete the census test?</h2>
     <p>Taking part helps us make sure the census is easy to complete and produces accurate information about students living across England and Wales.</p>
-    <h2 class="ons-u-mt-2xl">Keeping your data safe</h2>
-    <p>Your answers are kept confidential and used for statistical purposes.</p>
+    <h2 class="ons-u-mt-2xl">Your information is safe</h2>
+    {% call onsPanel({
+        "variant": "bare",
+        "iconType": "lock",
+        "classes": "info-safe-panel ons-u-mb-s"
+    }) %}
+        Your information is protected by law and kept confidential.
+    {% endcall %}
+    <p>We only use it to produce statistics and improve future censuses. It will not be shared with your university or used to make decisions about you as an individual.</p>
+    <p>Find out more about <a href="#0">your data and security</a>.</p>
     <h2 class="ons-u-mt-2xl">Need help?</h2>
     <p>If you're not sure whether you should take part, which address to use, or need help accessing the test, <a href="#0">contact the census support team</a>.</p>
 {% endblock %}
