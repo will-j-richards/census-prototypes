@@ -493,6 +493,20 @@ function setupAccessCodePage() {
     setTimeout(forceConfirmFinalAction, 0);
     setTimeout(forceConfirmFinalAction, 50);
 
+    // SMS codes use hyphens (XXXX-XXXX-XXXX-XXXX); normalise before the DS formatter runs.
+    const accessCodeInput = form.querySelector('.ons-js-access-code, input[name="access-code"]');
+    if (accessCodeInput) {
+        accessCodeInput.addEventListener(
+            'input',
+            () => {
+                if (accessCodeInput.value.includes('-')) {
+                    accessCodeInput.value = accessCodeInput.value.replace(/-/g, '');
+                }
+            },
+            true,
+        );
+    }
+
     form.addEventListener('submit', () => {
         forceConfirmFinalAction();
     });
