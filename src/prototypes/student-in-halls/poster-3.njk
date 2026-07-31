@@ -13,23 +13,28 @@
     <div class="poster-page__grid">
         <a
             class="poster-page__link"
+            data-materials-link="{{ pageInfo.rootPath }}/index.html"
             href="{{ pageInfo.rootPath }}/index.html"
         >
             <img
                 class="poster-page__image"
-                src="{{ pageInfo.rootPath }}/img/followup-postcard-front.png"
+                data-material="postcard-front"
+                src="{{ pageInfo.rootPath }}/img/postcard-front-crown.png"
                 alt="Follow-up postcard front"
             >
         </a>
         <a
             class="poster-page__link"
+            data-materials-link="{{ pageInfo.rootPath }}/index.html"
             href="{{ pageInfo.rootPath }}/index.html"
         >
             <img
                 class="poster-page__image"
-                src="{{ pageInfo.rootPath }}/img/followup-postcard-back.png"
+                data-material="postcard-back"
+                src="{{ pageInfo.rootPath }}/img/postcard-back-crown.png"
                 alt="Follow-up postcard back"
             >
         </a>
     </div>
+    <script src="{{ pageInfo.rootPath }}/materials.js"></script>
 {% endblock %}

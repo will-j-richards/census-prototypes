@@ -12,12 +12,15 @@
 {% block body %}
     <a
         class="splash-page__link"
-        href="{{ pageInfo.rootPath }}/poster-2.html"
+        data-materials-link="{{ pageInfo.rootPath }}/poster-2.html"
+        href="{{ pageInfo.rootPath }}/poster-2.html?crown=1"
     >
         <img
             class="splash-page__image"
-            src="{{ pageInfo.rootPath }}/img/aware-poster.png"
-            alt="Go to poster 2"
+            data-material="aware-poster"
+            src="{{ pageInfo.rootPath }}/img/aware-poster-crown.png"
+            alt="Aware poster"
         >
     </a>
+    <script src="{{ pageInfo.rootPath }}/materials.js"></script>
 {% endblock %}

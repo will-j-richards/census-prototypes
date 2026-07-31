@@ -11,6 +11,10 @@ gulp.task('prototype-kit:copy-static-images', () => {
   return gulp.src('./src/prototypes/**/img/**/*', { base: './src' }).pipe(gulp.dest('./build'));
 });
 
+gulp.task('prototype-kit:copy-materials-js', () => {
+  return gulp.src('./src/prototypes/**/materials.js', { base: './src' }).pipe(gulp.dest('./build'));
+});
+
 gulp.task('prototype-kit:start-dev-server', async () => {
   await import('./server.js');
 });
@@ -21,6 +25,7 @@ gulp.task(
     'prototype-kit:build-assets',
     'prototype-kit:copy-json-files',
     'prototype-kit:copy-static-images',
+    'prototype-kit:copy-materials-js',
     'prototype-kit:watch-and-build',
     'prototype-kit:start-dev-server',
   ),
@@ -32,6 +37,7 @@ gulp.task(
     'prototype-kit:build-assets',
     'prototype-kit:copy-json-files',
     'prototype-kit:copy-static-images',
+    'prototype-kit:copy-materials-js',
     'prototype-kit:build-pages',
   ),
 );

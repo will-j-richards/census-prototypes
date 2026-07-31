@@ -12,12 +12,15 @@
 {% block body %}
     <a
         class="splash-page__link"
-        href="{{ pageInfo.rootPath }}/poster-3.html"
+        data-materials-link="{{ pageInfo.rootPath }}/poster-3.html"
+        href="{{ pageInfo.rootPath }}/poster-3.html?crown=1"
     >
         <img
             class="splash-page__image"
-            src="{{ pageInfo.rootPath }}/img/invite-poster.png"
+            data-material="invite-poster"
+            src="{{ pageInfo.rootPath }}/img/invite-poster-crown.png"
             alt="Invite poster"
         >
     </a>
+    <script src="{{ pageInfo.rootPath }}/materials.js"></script>
 {% endblock %}
