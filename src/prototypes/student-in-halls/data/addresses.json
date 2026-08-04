@@ -55,17 +55,6 @@
     "formattedAddress": "23 Bowsden Court, South Gosforth, Newcastle Upon Tyne, NE3 1RR"
   },
   {
-    "uprn": "4510743253",
-    "organisationName": "",
-    "addressLine1": "Block C The Shield",
-    "addressLine2": "Clarence Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1YS",
-    "formattedAddress": "Block C The Shield, Clarence Street, Newcastle Upon Tyne, NE2 1YS"
-  },
-  {
     "uprn": "4510745293",
     "organisationName": "",
     "addressLine1": "Oxford House Student Accomodation",
@@ -328,17 +317,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE2 1XH",
     "formattedAddress": "Byron Central Block G, Byron Street, Newcastle Upon Tyne, NE2 1XH"
-  },
-  {
-    "uprn": "4510746481",
-    "organisationName": "",
-    "addressLine1": "Byron Central Block B",
-    "addressLine2": "Byron Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1XH",
-    "formattedAddress": "Byron Central Block B, Byron Street, Newcastle Upon Tyne, NE2 1XH"
   },
   {
     "uprn": "4510744261",
@@ -715,17 +693,6 @@
     "formattedAddress": "17 Garth Heads, Newcastle Upon Tyne, NE1 2JE"
   },
   {
-    "uprn": "4510746499",
-    "organisationName": "",
-    "addressLine1": "Byron Central Block D",
-    "addressLine2": "Byron Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1XH",
-    "formattedAddress": "Byron Central Block D, Byron Street, Newcastle Upon Tyne, NE2 1XH"
-  },
-  {
     "uprn": "4510702366",
     "organisationName": "",
     "addressLine1": "Fife House",
@@ -779,17 +746,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE2 4BY",
     "formattedAddress": "Pont Park View Student Village, Richardson Road, Newcastle Upon Tyne, NE2 4BY"
-  },
-  {
-    "uprn": "4510746500",
-    "organisationName": "",
-    "addressLine1": "Byron Central Block E",
-    "addressLine2": "Byron Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1XH",
-    "formattedAddress": "Byron Central Block E, Byron Street, Newcastle Upon Tyne, NE2 1XH"
   },
   {
     "uprn": "4510706769",
@@ -1947,17 +1903,6 @@
     "formattedAddress": "20 Garth Heads, Newcastle Upon Tyne, NE1 2JE"
   },
   {
-    "uprn": "4510743206",
-    "organisationName": "",
-    "addressLine1": "Block B The Shield",
-    "addressLine2": "Clarence Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1YR",
-    "formattedAddress": "Block B The Shield, Clarence Street, Newcastle Upon Tyne, NE2 1YR"
-  },
-  {
     "uprn": "4510735028",
     "organisationName": "",
     "addressLine1": "Union Square",
@@ -2255,17 +2200,6 @@
     "formattedAddress": "9 Garth Heads, Newcastle Upon Tyne, NE1 2JE"
   },
   {
-    "uprn": "4510746494",
-    "organisationName": "",
-    "addressLine1": "Byron Central Block C",
-    "addressLine2": "Byron Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1XH",
-    "formattedAddress": "Byron Central Block C, Byron Street, Newcastle Upon Tyne, NE2 1XH"
-  },
-  {
     "uprn": "4510147276",
     "organisationName": "",
     "addressLine1": "23 Garth Heads",
@@ -2308,17 +2242,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE3 1RR",
     "formattedAddress": "7 Bowsden Court, South Gosforth, Newcastle Upon Tyne, NE3 1RR"
-  },
-  {
-    "uprn": "4510743070",
-    "organisationName": "Reception",
-    "addressLine1": "Block A The Shield",
-    "addressLine2": "Clarence Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1YN",
-    "formattedAddress": "Reception, Block A The Shield, Clarence Street, Newcastle Upon Tyne, NE2 1YN"
   },
   {
     "uprn": "4510702255",
@@ -2539,17 +2462,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE2 4BB",
     "formattedAddress": "5 Park Terrace, Newcastle Upon Tyne, NE2 4BB"
-  },
-  {
-    "uprn": "4510746483",
-    "organisationName": "",
-    "addressLine1": "Byron Central Block A",
-    "addressLine2": "Byron Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE2 1XH",
-    "formattedAddress": "Byron Central Block A, Byron Street, Newcastle Upon Tyne, NE2 1XH"
   },
   {
     "uprn": "4510741616",
@@ -3397,6 +3309,17 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE4 5TH",
     "formattedAddress": "Flat 69 Verde Building A, Pitt Street, Newcastle Upon Tyne, NE4 5TH"
+  },
+  {
+    "uprn": "4510738838",
+    "organisationName": "",
+    "addressLine1": "Flat 52 Verde Building A",
+    "addressLine2": "Pitt Street",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "Newcastle Upon Tyne",
+    "postcode": "NE4 5TH",
+    "formattedAddress": "Flat 52 Verde Building A, Pitt Street, Newcastle Upon Tyne, NE4 5TH"
   },
   {
     "uprn": "4510738871",
@@ -30041,17 +29964,6 @@
     "formattedAddress": "34 Quay Point, Stepney Lane, Newcastle Upon Tyne, NE1 6PZ"
   },
   {
-    "uprn": "4510762524",
-    "organisationName": "",
-    "addressLine1": "1-34 Garth Heads",
-    "addressLine2": "",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2JE",
-    "formattedAddress": "1-34 Garth Heads, Newcastle Upon Tyne, NE1 2JE"
-  },
-  {
     "uprn": "4510736653",
     "organisationName": "",
     "addressLine1": "Studio 130 St. James Point",
@@ -34287,17 +34199,6 @@
     "formattedAddress": "Flat 151 The View, Barrack Road, Newcastle Upon Tyne, NE1 4SL"
   },
   {
-    "uprn": "4510735545",
-    "organisationName": "",
-    "addressLine1": "Flat 33 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 33 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
-  },
-  {
     "uprn": "4510742369",
     "organisationName": "",
     "addressLine1": "Flat 318 St. James House",
@@ -36364,17 +36265,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE4 5AX",
     "formattedAddress": "Studio 235 St. James Point, Pitt Street, Newcastle Upon Tyne, NE4 5AX"
-  },
-  {
-    "uprn": "4510735539",
-    "organisationName": "",
-    "addressLine1": "Flat 27 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 27 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
   },
   {
     "uprn": "4510735353",
@@ -47322,17 +47212,6 @@
     "formattedAddress": "Flat 45 Bryson Court, Portland Road, Newcastle Upon Tyne, NE2 1DT"
   },
   {
-    "uprn": "4510735536",
-    "organisationName": "",
-    "addressLine1": "Flat 24 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 24 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
-  },
-  {
     "uprn": "4510737574",
     "organisationName": "",
     "addressLine1": "Flat 56 The View",
@@ -49170,17 +49049,6 @@
     "formattedAddress": "Flat 129 St. James House, St. James Street, Newcastle Upon Tyne, NE1 4BJ"
   },
   {
-    "uprn": "4510752235",
-    "organisationName": "",
-    "addressLine1": "Flat 100 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 100 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
-  },
-  {
     "uprn": "4510738862",
     "organisationName": "",
     "addressLine1": "Flat 73 Verde Building A",
@@ -50224,17 +50092,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 2QF",
     "formattedAddress": "Flat 180, True Newcastle, Coquet Street, Newcastle Upon Tyne, NE1 2QF"
-  },
-  {
-    "uprn": "4510735542",
-    "organisationName": "",
-    "addressLine1": "Flat 30 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 30 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
   },
   {
     "uprn": "4510746190",
@@ -54549,17 +54406,6 @@
     "formattedAddress": "Flat 35 Clapham House, 100 John Dobson Street, Newcastle Upon Tyne, NE1 8YW"
   },
   {
-    "uprn": "4510735568",
-    "organisationName": "",
-    "addressLine1": "Flat 56 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 56 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
-  },
-  {
     "uprn": "4510740318",
     "organisationName": "",
     "addressLine1": "Flat 0.13 Stepney Yard",
@@ -57319,17 +57165,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 4RB",
     "formattedAddress": "Room 203 Vita Student Newcastle, Strawberry Place, Newcastle Upon Tyne, NE1 4RB"
-  },
-  {
-    "uprn": "4510735530",
-    "organisationName": "",
-    "addressLine1": "Flat 18 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 18 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
   },
   {
     "uprn": "4510742198",
@@ -60432,17 +60267,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 4SL",
     "formattedAddress": "Flat 140 The View, Barrack Road, Newcastle Upon Tyne, NE1 4SL"
-  },
-  {
-    "uprn": "4510735547",
-    "organisationName": "",
-    "addressLine1": "Flat 35 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 35 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
   },
   {
     "uprn": "4510746218",
@@ -65085,6 +64909,17 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 4RF",
     "formattedAddress": "Room 524 Vita Student Newcastle, Strawberry Place, Newcastle Upon Tyne, NE1 4RF"
+  },
+  {
+    "uprn": "4510744420",
+    "organisationName": "",
+    "addressLine1": "Room 523 Vita Student Newcastle",
+    "addressLine2": "Strawberry Place",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "Newcastle Upon Tyne",
+    "postcode": "NE1 4RF",
+    "formattedAddress": "Room 523 Vita Student Newcastle, Strawberry Place, Newcastle Upon Tyne, NE1 4RF"
   },
   {
     "uprn": "4510720371",
@@ -73315,17 +73150,6 @@
     "formattedAddress": "Apartment 88 Union Square, Stoddart Street, Newcastle Upon Tyne, NE2 1BT"
   },
   {
-    "uprn": "4510735566",
-    "organisationName": "",
-    "addressLine1": "Flat 54 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 54 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
-  },
-  {
     "uprn": "4510738989",
     "organisationName": "",
     "addressLine1": "Flat 198 Verde Building B",
@@ -73412,6 +73236,17 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE2 4AA",
     "formattedAddress": "Flat G02, 19 Claremont Place, Newcastle Upon Tyne, NE2 4AA"
+  },
+  {
+    "uprn": "4510743071",
+    "organisationName": "",
+    "addressLine1": "Flat G01 Block A The Shield",
+    "addressLine2": "Clarence Street",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "Newcastle Upon Tyne",
+    "postcode": "NE2 1YN",
+    "formattedAddress": "Flat G01 Block A The Shield, Clarence Street, Newcastle Upon Tyne, NE2 1YN"
   },
   {
     "uprn": "4510736704",
@@ -74534,17 +74369,6 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 6NQ",
     "formattedAddress": "Flat 120 Plummer House, Market Street, Newcastle Upon Tyne, NE1 6NQ"
-  },
-  {
-    "uprn": "4510735549",
-    "organisationName": "",
-    "addressLine1": "Flat 37 Mansion Tyne",
-    "addressLine2": "Howard Street",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 2BW",
-    "formattedAddress": "Flat 37 Mansion Tyne, Howard Street, Newcastle Upon Tyne, NE1 2BW"
   },
   {
     "uprn": "4510744498",
@@ -85382,17 +85206,6 @@
     "formattedAddress": "Flat 9 Byron Lofts, Byron Street, Newcastle Upon Tyne, NE2 1XH"
   },
   {
-    "uprn": "4510703064",
-    "organisationName": "",
-    "addressLine1": "44 Leazes Terrace",
-    "addressLine2": "",
-    "addressLine3": "",
-    "addressLine4": "",
-    "townName": "Newcastle Upon Tyne",
-    "postcode": "NE1 4LZ",
-    "formattedAddress": "44 Leazes Terrace, Newcastle Upon Tyne, NE1 4LZ"
-  },
-  {
     "uprn": "4510134760",
     "organisationName": "",
     "addressLine1": "6 Kielder House 55-59",
@@ -88537,5 +88350,148 @@
     "townName": "Newcastle Upon Tyne",
     "postcode": "NE1 4DS",
     "formattedAddress": "128 Vita Student Leazes Park, Strawberry Place, Newcastle Upon Tyne, NE1 4DS"
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
+  },
+  {
+    "uprn": "",
+    "organisationName": "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "addressLine3": "",
+    "addressLine4": "",
+    "townName": "",
+    "postcode": "",
+    "formattedAddress": ""
   }
 ]
