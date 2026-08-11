@@ -50,9 +50,29 @@ layout: student-in-halls/views/_main
 } %}
 
 {% block main %}
-    <h1>Are you a student in halls of residence?</h1>
-    <p>We're inviting students in halls of residence to take part in the Census Test. Your response will help the ONS shape Census 2031 for students.</p>
+    <h1>Are you a student in Halls of Residence?</h1>
+    <p>We are inviting students in student accommodation, including university halls and privately operated halls to take part in the Census Test. Your response will help the ONS shape the next national census in 2031 for students.</p>
     <p>It only takes 10 minutes to complete.</p>
+    <h2>What you need to do</h2>
+    {{
+        onsList({
+            "element": "ol",
+            "itemsList": [
+                {
+                    "text": "Request your access code"
+                },
+                {
+                    "text": "Receive code on a UK mobile phone"
+                },
+                {
+                    "text": "Use the code to access the Census Test"
+                },
+                {
+                    "text": "Complete the Census Test today"
+                }
+            ]
+        })
+    }}
     {{
         onsButton({
             "text": "Start Census Test",
@@ -61,38 +81,18 @@ layout: student-in-halls/views/_main
         })
     }}
     <p class="ons-u-mt-m">If you're not a student in halls of residence, go to the Census Test <a href="#0">homepage</a>.</p>
-    <h2 class="ons-u-mt-3xl">What you need to do</h2>
-    {{
-        onsList({
-            "element": "ol",
-            "itemsList": [
-                {
-                    "text": "Request your access code."
-                },
-                {
-                    "text": "Receive code on a UK mobile phone."
-                },
-                {
-                    "text": 'Use the code to access the <a href="#0">Census Test</a>.'
-                },
-                {
-                    "text": "Complete your Census Test today."
-                }
-            ]
-        })
-    }}
     <h2 class="ons-u-mt-2xl">International students</h2>
-    <p>If you're an international student and live in halls of residence, you should take part in the Census Test using your UK term-time address.</p>
-    <p>If you'll be in the UK for less than 3 months, you do not need to complete the Census Test.</p>
+    <p>If you’re an international student and live in halls of residence, you should take part in the Census Test using your halls of residence address.</p>
     <h2 class="ons-u-mt-2xl">Why should I complete the Census Test?</h2>
-    <p>Taking part helps us make sure the census is easy to complete and produces accurate information about students living across England and Wales.</p>
+    <p>The census helps build a picture of the population. Information from the census is used to help plan and fund services that people rely on.</p>
+    <p>Students are an important part of the population. By taking part in this test, you're helping us make sure future censuses work well for everyone.</p>
     <h2 class="ons-u-mt-2xl">Your information is safe</h2>
     {% call onsPanel({
         "variant": "bare",
         "iconType": "lock",
         "classes": "info-safe-panel ons-u-mb-s"
     }) %}
-        Your information is protected by law and kept confidential.
+        Your answers are kept confidential and used for statistical purposes.
     {% endcall %}
     <p>We only use it to produce statistics and improve future censuses. It will not be shared with your university or used to make decisions about you as an individual.</p>
     <p>Find out more about <a href="#0">your data and security</a>.</p>
