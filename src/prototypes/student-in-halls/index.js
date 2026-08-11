@@ -513,8 +513,8 @@ function setupAccessCodePage() {
 }
 
 function setupDonePage() {
-    const mobileOutput = document.querySelector('.js-text-sent-mobile');
-    if (!mobileOutput) {
+    const textSentTitle = document.querySelector('#text-sent-title');
+    if (!textSentTitle) {
         return;
     }
 
@@ -530,7 +530,10 @@ function setupDonePage() {
         return;
     }
 
-    mobileOutput.textContent = mobile;
+    const mobileOutput = document.querySelector('.js-text-sent-mobile');
+    if (mobileOutput) {
+        mobileOutput.textContent = mobile;
+    }
 }
 
 function setupMobilePage() {
