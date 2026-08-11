@@ -674,7 +674,7 @@ function persistAddressQuestion(form, input, uprnInput) {
     const previousLink = document.querySelector('.js-previous');
 
     const question = {
-        title: document.querySelector('h1')?.innerText || 'What is your term time address?',
+        title: document.querySelector('h1')?.innerText || 'What is your address?',
         inputs: [
             {
                 id: uprnInput.id,
@@ -685,7 +685,7 @@ function persistAddressQuestion(form, input, uprnInput) {
                 id: input.id,
                 value: input.value,
                 checked: false,
-                label: 'Enter your room, flat, building name or postcode',
+                label: 'Enter address or postcode and select from the results',
             },
         ],
         previousURL: previousLink ? previousLink.getAttribute('href') : undefined,
