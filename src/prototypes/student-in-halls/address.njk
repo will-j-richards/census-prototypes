@@ -7,7 +7,6 @@ layout: student-in-halls/views/_main
 {% from "components/address-input/_macro.njk" import onsAddressInput %}
 {% from "components/panel/_macro.njk" import onsPanel %}
 {% from "components/list/_macro.njk" import onsList %}
-{% from "components/details/_macro.njk" import onsDetails %}
 
 {% set prevPage = "index" %}
 {% set formActionURL = pageInfo.rootPath + "/confirm.html" %}
@@ -42,31 +41,6 @@ layout: student-in-halls/views/_main
                     ]
                 })
             }}
-        {% endcall %}
-        {%
-            call onsDetails({
-                "id": "help-finding-address",
-                "title": "Help with finding your address",
-                "classes": "ons-u-mb-m"
-            })
-        %}
-            <p>Try typing your address different ways. For example:</p>
-            {{
-                onsList({
-                    "itemsList": [
-                        {
-                            "text": "Your flat or room number and building name"
-                        },
-                        {
-                            "text": "Your property's name or number and street name"
-                        },
-                        {
-                            "text": "Your street name and town"
-                        }
-                    ]
-                })
-            }}
-            <p>If you still cannot find your address <a href="#0">let us know</a></p>
         {% endcall %}
         {# Hint temporarily removed from address label:
            "description": "For example: Room 15, Block C, University Hall, or CF10 3NB"
@@ -111,6 +85,24 @@ layout: student-in-halls/views/_main
                 }
             })
         }}
+        <h2 class="ons-u-fs-r--b ons-u-mt-m">Help with finding your address</h2>
+        <p>Try typing your address different ways. For example:</p>
+        {{
+            onsList({
+                "itemsList": [
+                    {
+                        "text": "Your flat or room number and building name"
+                    },
+                    {
+                        "text": "Your property's name or number and street name"
+                    },
+                    {
+                        "text": "Your street name and town"
+                    }
+                ]
+            })
+        }}
+        <p>If you still cannot find your address <a href="#0">let us know</a></p>
     {% endcall %}
 {% endblock %}
 
