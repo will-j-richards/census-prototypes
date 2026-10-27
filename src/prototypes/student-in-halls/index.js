@@ -9,6 +9,7 @@ const STORAGE_KEY = 'student-in-halls-selected-address';
 const MOBILE_STORAGE_KEY = 'student-in-halls-mobile-number';
 const ADDRESS_MODE_KEY = 'student-in-halls-address-mode';
 const ESTABLISHMENT_SCREEN_KEY = 'student-in-halls-establishment-screen';
+const ADDRESS_FIELD_KEY = 'student-in-halls-address-field';
 
 let addressesPromise = null;
 
@@ -406,6 +407,46 @@ function getSavedAddressFromQuestionManager() {
 
 function saveSelectedAddress(address) {
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(address));
+    rememberAddressField(address && address.formattedAddress, address && address.uprn);
+}
+
+function rememberAddressField(query, uprn) {
+    const value = String(query || '').trim();
+    if (!value) {
+        return;
+    }
+
+    // Question Manager stores this answer under the page path. On Netlify, pretty
+    // URLs remove ".html", and that manager then deletes every saved answer whose
+    // key contains the address path. This key stays outside that clear.
+    sessionStorage.setItem(
+        ADDRESS_FIELD_KEY,
+        JSON.stringify({
+            query: value,
+            uprn: String(uprn || ''),
+        }),
+    );
+}
+
+function readAddressField() {
+    try {
+        const saved = JSON.parse(sessionStorage.getItem(ADDRESS_FIELD_KEY) || 'null');
+        if (saved && saved.query) {
+            return saved;
+        }
+    } catch (error) {
+        // Ignore invalid session data.
+    }
+
+    const selected = readSelectedAddress();
+    if (selected && selected.formattedAddress) {
+        return {
+            query: selected.formattedAddress,
+            uprn: selected.uprn || '',
+        };
+    }
+
+    return null;
 }
 
 function readSelectedAddress() {
@@ -799,6 +840,7 @@ function persistAddressQuestion(form, input, uprnInput) {
     };
 
     sessionStorage.setItem(url, JSON.stringify(question));
+    rememberAddressField(input.value, uprnInput.value);
 }
 
 function setupAddressPage() {
@@ -827,8 +869,25 @@ function setupAddressPage() {
         });
     };
 
-    // Question Manager restores values asynchronously; treat a restored UPRN as selected.
-    setTimeout(commitSelection, 0);
+    window.addEventListener('pagehide', () => {
+        rememberAddressField(input.value, uprnInput.value);
+    });
+
+    // Question Manager restores values on DOMContentLoaded. On Netlify that restore
+    // is wiped, so fill the field from the copy that survives the clear.
+    setTimeout(() => {
+        if (!input.value) {
+            const savedField = readAddressField();
+            if (savedField) {
+                input.value = savedField.query;
+                if (!uprnInput.value && savedField.uprn) {
+                    uprnInput.value = savedField.uprn;
+                }
+            }
+        }
+
+        commitSelection();
+    }, 0);
 
     input.addEventListener('input', () => {
         selectionCommitted = false;

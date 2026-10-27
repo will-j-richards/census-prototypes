@@ -3,6 +3,11 @@
   publish = "build"
   functions = "netlify"
 
+# Keep ".html" in URLs. Pretty URLs make Question Manager treat each page as a
+# new questionnaire and clear saved answers, including the address search.
+[build.processing.html]
+  pretty_urls = false
+
 [build.environment]
   NODE_VERSION = "20"
   # Needed so Netlify can install the git dependency (@ons/prototype-kit)
