@@ -141,6 +141,16 @@ function toRetrieveAddress(address) {
     };
 }
 
+function wordStartsWith(words, token) {
+    for (const word of words) {
+        if (word.startsWith(token)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 function searchAddresses(addresses, query, limit) {
     const normalisedQuery = normalise(query);
 
@@ -160,7 +170,7 @@ function searchAddresses(addresses, query, limit) {
         let matched = 0;
 
         tokens.forEach((token) => {
-            if (words.has(token) || (token.length > 1 && postcode.includes(token))) {
+            if (words.has(token) || wordStartsWith(words, token) || (token.length > 1 && postcode.includes(token))) {
                 matched += 1;
             }
         });
