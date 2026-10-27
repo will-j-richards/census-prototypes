@@ -7,8 +7,71 @@ const ADDRESSES_URL = '/prototypes/student-in-halls/data/addresses.json';
 const API_PREFIX = '/mock-address-api';
 const STORAGE_KEY = 'student-in-halls-selected-address';
 const MOBILE_STORAGE_KEY = 'student-in-halls-mobile-number';
+const ADDRESS_MODE_KEY = 'student-in-halls-address-mode';
+const ESTABLISHMENT_SCREEN_KEY = 'student-in-halls-establishment-screen';
 
 let addressesPromise = null;
+
+function syncAddressMode() {
+    const isLandingPage = /\/student-in-halls\/(?:index\.html)?\/?$/.test(window.location.pathname);
+    if (!isLandingPage) {
+        return;
+    }
+
+    const version = new URLSearchParams(window.location.search).get('version');
+    sessionStorage.setItem(ADDRESS_MODE_KEY, version === '2' ? 'units' : 'all');
+    sessionStorage.setItem(ESTABLISHMENT_SCREEN_KEY, version === '3' ? 'find-flat' : 'select-flat');
+}
+
+function isVersionTwoOrThree() {
+    return (
+        sessionStorage.getItem(ADDRESS_MODE_KEY) === 'units' ||
+        sessionStorage.getItem(ESTABLISHMENT_SCREEN_KEY) === 'find-flat'
+    );
+}
+
+function setupAddressLabel() {
+    if (!isVersionTwoOrThree()) {
+        return;
+    }
+
+    const label = document.querySelector('#address-label-input');
+    if (label) {
+        label.textContent = 'Enter your address or postcode and select from the results';
+    }
+}
+
+function setupAddressHelpDetails() {
+    const details = document.querySelector('.js-address-help-details');
+    const staticHelp = document.querySelector('.js-address-help-static');
+    if (!details || !staticHelp || !isVersionTwoOrThree()) {
+        return;
+    }
+
+    const detailsContent = details.querySelector('.ons-js-details-content');
+    if (!detailsContent) {
+        return;
+    }
+
+    staticHelp.querySelector('h2')?.remove();
+    while (staticHelp.firstChild) {
+        detailsContent.appendChild(staticHelp.firstChild);
+    }
+    staticHelp.remove();
+    details.hidden = false;
+}
+
+function establishmentScreenPath() {
+    return sessionStorage.getItem(ESTABLISHMENT_SCREEN_KEY) === 'find-flat' ? './find-flat.html' : './select-flat.html';
+}
+
+function addressesForSearch(addresses) {
+    if (sessionStorage.getItem(ADDRESS_MODE_KEY) !== 'units') {
+        return addresses;
+    }
+
+    return addresses.filter((address) => address.addressLevel !== 'E');
+}
 
 function loadAddresses() {
     if (!addressesPromise) {
@@ -79,22 +142,51 @@ function toRetrieveAddress(address) {
 
 function searchAddresses(addresses, query, limit) {
     const normalisedQuery = normalise(query);
-    const compactQuery = compactPostcode(query);
 
     if (!normalisedQuery) {
         return { results: [], total: 0 };
     }
 
-    const matches = addresses.filter((address) => {
-        const haystack = normalise(address.formattedAddress);
-        const postcode = compactPostcode(address.postcode);
+    const tokens = normalisedQuery.split(' ').filter(Boolean);
+    const requireAll = tokens.length <= 4;
+    const leadingPhrase = tokens.slice(0, 2).join(' ');
+    const matches = [];
 
-        return haystack.includes(normalisedQuery) || postcode.includes(compactQuery);
+    addresses.forEach((address) => {
+        const haystack = normalise(address.formattedAddress);
+        const words = new Set(haystack.split(' ').filter(Boolean));
+        const postcode = compactPostcode(address.postcode);
+        let matched = 0;
+
+        tokens.forEach((token) => {
+            if (words.has(token) || (token.length > 1 && postcode.includes(token))) {
+                matched += 1;
+            }
+        });
+
+        if (!matched || (requireAll && matched !== tokens.length) || (!requireAll && matched / tokens.length < 0.6)) {
+            return;
+        }
+
+        const phraseBonus = tokens.length > 1 && haystack.includes(leadingPhrase) ? 2 : 0;
+        const openingBonus = words.has(tokens[0]) ? 3 : 0;
+        const completeBonus = matched === tokens.length ? 1 : 0;
+        matches.push({
+            address,
+            score: matched + phraseBonus + openingBonus + completeBonus,
+        });
     });
 
+    matches.sort((a, b) => b.score - a.score);
+    const bestScore = matches.length ? matches[0].score : 0;
+    const bestMatches = matches.filter((match) => match.score === bestScore);
+    const returned = bestMatches.slice(0, limit);
+    // A full postcode in the query raises the result limit to 100 and hides the list above that.
+    const total = bestMatches.length > 100 ? returned.length : bestMatches.length;
+
     return {
-        results: matches.slice(0, limit).map(toLookupAddress),
-        total: matches.length,
+        results: returned.map((match) => toLookupAddress(match.address)),
+        total,
     };
 }
 
@@ -152,7 +244,7 @@ function getBucketAddresses(addresses, params) {
 }
 
 async function handleMockAddressApi(url) {
-    const addresses = await loadAddresses();
+    const addresses = addressesForSearch(await loadAddresses());
     const { pathname, searchParams } = url;
 
     if (pathname.startsWith(`${API_PREFIX}/addresses/eq/uprn/`)) {
@@ -426,6 +518,11 @@ async function setupConfirmPage() {
         return;
     }
 
+    if (!isFinalConfirm && address.addressLevel === 'E') {
+        window.location.href = establishmentScreenPath();
+        return;
+    }
+
     saveSelectedAddress(address);
 
     const output = document.querySelector('.js-confirm-address-output');
@@ -688,7 +785,9 @@ function persistAddressQuestion(form, input, uprnInput) {
                 id: input.id,
                 value: input.value,
                 checked: false,
-                label: 'Enter address or postcode and select from the results',
+                label:
+                    document.querySelector('#address-label-input')?.textContent?.trim() ||
+                    'Enter your address and select from the results',
             },
         ],
         previousURL: previousLink ? previousLink.getAttribute('href') : undefined,
@@ -762,12 +861,25 @@ function setupAddressPage() {
             if (uprnInput.value && input.value && (selectionCommitted || matchesSavedSelection)) {
                 event.preventDefault();
                 event.stopImmediatePropagation();
-                saveSelectedAddress({
-                    uprn: uprnInput.value,
-                    formattedAddress: input.value,
-                });
-                persistAddressQuestion(form, input, uprnInput);
-                window.location = form.action;
+
+                loadAddresses()
+                    .then((addresses) => addresses.find((item) => String(item.uprn) === String(uprnInput.value)))
+                    .catch(() => null)
+                    .then((selected) => {
+                        saveSelectedAddress({
+                            uprn: uprnInput.value,
+                            formattedAddress: input.value,
+                            addressLevel: selected ? selected.addressLevel : '',
+                        });
+                        persistAddressQuestion(form, input, uprnInput);
+
+                        if (selected && selected.addressLevel === 'E') {
+                            window.location = new URL(establishmentScreenPath(), window.location.href).href;
+                            return;
+                        }
+
+                        window.location = form.action;
+                    });
                 return;
             }
 
@@ -783,8 +895,64 @@ function setupAddressPage() {
     );
 }
 
+function addressLines(address) {
+    const lines = [
+        address.organisationName,
+        address.addressLine1,
+        address.addressLine2,
+        address.addressLine3,
+        address.addressLine4,
+        address.townName,
+        address.postcode,
+    ];
+
+    return lines.filter((line, index) => {
+        const value = String(line || '').trim();
+        if (!value) {
+            return false;
+        }
+        const previous = String(lines[index - 1] || '').trim();
+        return value !== previous;
+    });
+}
+
+async function setupFindFlatPage() {
+    const output = document.querySelector('.js-selected-establishment');
+    if (!output) {
+        return;
+    }
+
+    const saved = readSelectedAddress();
+    let address = saved;
+
+    if (saved && saved.uprn) {
+        try {
+            const addresses = await loadAddresses();
+            address = addresses.find((item) => String(item.uprn) === String(saved.uprn)) || saved;
+        } catch (error) {
+            address = saved;
+        }
+    }
+
+    const lines = address ? addressLines(address) : [];
+    if (!lines.length && address && address.formattedAddress) {
+        lines.push(...address.formattedAddress.split(',').map((part) => part.trim()).filter(Boolean));
+    }
+
+    if (!lines.length) {
+        window.location.href = './address.html';
+        return;
+    }
+
+    output.innerHTML = lines.map((line) => escapeHtml(line)).join('<br>');
+}
+
+syncAddressMode();
+setupAddressLabel();
+setupAddressHelpDetails();
 installMockAddressApi();
 setupAddressPage();
+setupFindFlatPage();
 setupConfirmPage();
 setupAccessCodePage();
 setupMobilePage();

@@ -1,0 +1,13 @@
+---
+group: Census Test 2027
+title: Student in halls
+layout: student-in-halls/views/_main
+---
+
+{% set prevPage = "address" %}
+
+{% block main %}
+    <h1>Select your flat or room</h1>
+    <p>Search again using your flat or room number to find a more accurate address, not just the building as a whole.</p>
+    <p><a href="{{ pageInfo.rootPath }}/address.html">Back to address search</a></p>
+{% endblock %}
