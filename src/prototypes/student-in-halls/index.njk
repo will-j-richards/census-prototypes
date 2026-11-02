@@ -1,11 +1,9 @@
 ---
 group: Census Test 2027
-title: Student in halls end-to-end journey
+title: Census Test 2027 is here
 layout: student-in-halls/views/_main
 ---
 {% from "components/button/_macro.njk" import onsButton %}
-{% from "components/list/_macro.njk" import onsList %}
-{% from "components/panel/_macro.njk" import onsPanel %}
 
 {% set pageBreadcrumbs = {
     "ariaLabel": "Breadcrumb",
@@ -50,29 +48,10 @@ layout: student-in-halls/views/_main
 } %}
 
 {% block main %}
-    <h1>Are you a student in Halls of Residence?</h1>
-    <p>We are inviting students in university and privately operated halls to take part in the Census Test. Your response will help the ONS shape the next national census in 2031 for students.</p>
-    <p>It only takes 10 minutes to complete.</p>
-    <h2>What you need to do</h2>
-    {{
-        onsList({
-            "element": "ol",
-            "itemsList": [
-                {
-                    "text": "Request your access code"
-                },
-                {
-                    "text": "Receive code on a UK mobile phone"
-                },
-                {
-                    "text": "Use the code to access the Census Test"
-                },
-                {
-                    "text": "Complete the Census Test today"
-                }
-            ]
-        })
-    }}
+    <h1>Census Test 2027 is here</h1>
+    <p>Census Test 2027 is a data-collection exercise that will help us prepare for Census 2031. We’ve asked people in halls of residence in Cardiff and Newcastle to complete a form, and what we learn will help us prepare for Census 2031.</p>
+    <h2>Complete your form now</h2>
+    <p>The Census Test is open. It should take you around 10 minutes to complete your form.</p>
     {{
         onsButton({
             "text": "Start Census Test",
@@ -80,22 +59,23 @@ layout: student-in-halls/views/_main
             "url": pageInfo.rootPath + "/address.html"
         })
     }}
-    <p class="ons-u-mt-m">If you're not a student in halls of residence, go to the Census Test <a href="#0">homepage</a>.</p>
-    <h2 class="ons-u-mt-2xl">International students</h2>
-    <p>If you’re an international student and live in halls of residence, you should take part in the Census Test using your halls of residence address.</p>
-    <h2 class="ons-u-mt-2xl">Why should I complete the Census Test?</h2>
-    <p>The census helps build a picture of the population. Information from the census is used to help plan and fund services that people rely on.</p>
-    <p>Students are an important part of the population. By taking part in this test, you're helping us make sure future censuses work well for everyone.</p>
-    <h2 class="ons-u-mt-2xl">Your information is safe</h2>
-    {% call onsPanel({
-        "variant": "bare",
-        "iconType": "lock",
-        "classes": "info-safe-panel ons-u-mb-s"
-    }) %}
-        Your information is protected by law and kept confidential.
-    {% endcall %}
-    <p>We only use it to produce statistics and improve future censuses. It will not be shared with your university or used to make decisions about you as an individual.</p>
-    <p>Find out more about <a href="#0">your data and security</a>.</p>
-    <h2 class="ons-u-mt-2xl">Need help?</h2>
-    <p>If you're not sure whether you should take part, which address to use, or need help accessing the test, <a href="#0">contact us</a>.</p>
+    <h2 class="ons-u-mt-2xl">Who should take part?</h2>
+    <p>Everyone living in halls of residence should take part, including UK and international students, and people who are living in halls but not studying at university.</p>
+    <p>If you do not live in halls of residence, but have been selected to take part, visit the <a href="#0">main Census Test 2027 web page</a> to find out more.</p>
+    <h2 class="ons-u-mt-2xl">Why you should take part</h2>
+    <p><strong>Your response matters</strong></p>
+    <p>Your answers will help us improve Census 2031 so more students in halls of residence complete it. We’ve previously had difficulty engaging students, so your involvement in the test will help us meet your needs.</p>
+    <h2 class="ons-u-mt-2xl">Help us build a better census</h2>
+    <p>By taking part in the test, you’ll help us improve the census for 2031 and ensure that we ask you the right questions.</p>
+    <h2 class="ons-u-mt-2xl">Your information is secure</h2>
+    <p>We keep your data safe, secure and confidential, and have a legal obligation to protect personal information.</p>
+    <h2 class="ons-u-mt-2xl">Information and support</h2>
+    <p><a href="#0">About the Census Test 2027</a></p>
+    <p>What the test is, why students living in halls of residence have been selected to take part, and how it will help us deliver Census 2031.</p>
+    <p><a href="#0">Privacy and data protection</a></p>
+    <p>Why you can trust us with your data, and how we store and process your information securely.</p>
+    <p><a href="#0">Contact us</a></p>
+    <p>Get help with completing your form, request a paper version and access our support for other languages.</p>
+    <h2 class="ons-u-mt-2xl">If you live in Scotland or Northern Ireland</h2>
+    <p>If you live in Scotland or Northern Ireland, visit the <a href="#0">Scotland census test website</a> and the <a href="#0">Northern Ireland census test website</a> respectively to take part.</p>
 {% endblock %}
